@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="tr" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+          integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reçete Takip Sistemi Rapor Sorgula</title>
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
+    <script src="js/chatbox.js" defer></script>
+    <link rel="stylesheet" href="styles/chatbox.css">
+    <link rel="stylesheet" href="/styles/raporSorgula.css">
+    <script src="/js/raporSorgula.js"></script>
+</head>
+
+<body>
+<!-- chatbox -->
+<button class="chatbot-toggler">
+    <span class="material-symbols-rounded">mode_comment</span>
+    <span class="material-symbols-outlined">close</span>
+</button>
+<div class="chatbot">
+    <header>
+        <h2>Sağlık Asistanım</h2>
+        <span class="close-btn material-symbols-outlined">close</span>
+    </header>
+    <ul class="chatbox">
+        <li class="chat incoming">
+            <span class="material-symbols-outlined">smart_toy</span>
+            <p>Merhaba 👋<br>Nasıl yardımcı olabilirim?</p>
+        </li>
+    </ul>
+    <div class="chat-input">
+        <textarea placeholder="Mesaj yazın..." spellcheck="false" required></textarea>
+        <span id="send-btn" class="material-symbols-rounded">send</span>
+    </div>
+</div>
+<!-- chatbox -->
+<nav id="sidebar" class="sidebar close">
+    <div class="close1">
+        <i class="fa-solid fa-x" id="x" onclick="close1()"></i>
+    </div>
+    <header>
+        <div class="image-text">
+            <div class="text logo-text">
+                <span class="personelNameArea"></span>
+                <span class="personelClinicNameArea"></span>
+            </div>
+        </div>
+    </header>
+
+    <div class="menu-bar">
+        <div class="menu">
+
+            <ul class="menu-links">
+                <li class="nav-link">
+                    <a href="index">
+                        <i class='bx bx-home-alt icon'></i>
+                        <span class="text nav-text">Ana Sayfa</span>
+                    </a>
+                </li>
+
+                <li class="nav-link">
+                    <a href="receteOlustur.html">
+                        <i class="icon fa-solid fa-pen-to-square"></i>
+
+                        <span class="text nav-text" id="onlyPersonelArea">Reçete Oluştur</span>
+                    </a>
+                </li>
+
+                <li class="nav-link">
+                    <a href="receteSorgula.html">
+                        <i class="icon fa-solid fa-magnifying-glass"></i>
+                        <span class="text nav-text">Reçete Sorgula</span>
+                    </a>
+                </li>
+
+                <li class="nav-link">
+                    <a href="randevuAl.html">
+                        <i class="icon fa-solid fa-calendar-days"></i>
+                        <span class="text nav-text">Randevu Al</span>
+                    </a>
+                </li>
+
+                <li class="nav-link">
+                    <a href="randevuSorgula.html">
+                        <i class="icon fa-solid fa-magnifying-glass"></i>
+                        <span class="text nav-text">Randevu Sorgula</span>
+                    </a>
+                </li>
+
+                <li class="nav-link">
+                    <a href="ilacListesi.html">
+                        <i class="icon fa-solid fa-list"></i>
+                        <span class="text nav-text">İlaç Listesi</span>
+                    </a>
+                </li>
+                <li class="nav-link">
+                    <a href="raporOlustur.html">
+                        <i class="icon fa-solid fa-paperclip"></i>
+                        <span class="text nav-text" id="onlyPersonelArea">Rapor Oluştur</span>
+                    </a>
+                </li>
+
+                <li class="nav-link">
+                    <a href="raporSorgula.html">
+                        <i class="icon fa-solid fa-magnifying-glass"></i>
+                        <span class="text nav-text" id="onlyPersonelArea">Rapor Sorgula</span>
+                    </a>
+                </li>
+
+                <li class="nav-link">
+                    <a href="login.html">
+                        <i class='bx bx-log-out icon'></i>
+                        <span class="text nav-text">Çıkış yap</span>
+                    </a>
+                </li>
+
+
+            </ul>
+        </div>
+
+    </div>
+
+</nav>
+
+<section class="home">
+    <div class="main-header">
+        <i class="fa-solid fa-bars" id="hamburger" onclick="open1()"></i>
+        <div class="headertext">
+            <img src="images/logo.png" alt="">
+            <h1>Reçete Takip Sistemi Rapor Sorgula</h1>
+        </div>
+    </div>
+    <div class="bakımda">
+        <h1>SAYFA BAKIM AŞAMASINDA</h1>
+    </div>
+
+    <!--
+    <div class="presSearch">
+
+        <label for="">Reçete No veya Raporlanan Doktor Adı:</label>
+        <input style="width: 200px; margin-left: 20px;" class="presInput" id="reportIdOrReportedPersonel" type="text">
+
+        <label for="">&nbsp;Tarih:</label>
+        <input style="width: 200px; margin-left: 20px;" class="presInput" type="date">
+
+        <button style="margin: 20px;" class="saveButton">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            Sorgula
+        </button>
+    </div>
+
+    <p>
+        Bu kısımda ilaç listesi sayfasındaki gibi bir tablo olacak.
+        Tabloda Rapor numarası, rapor oluşturulma tarihi, raporu oluşturanın adı ve reçete no(foreign) olacak.
+        Reçete numarasına tıklandığında i ikonuna tıkladığımızda çıktığı gibi ekran çıkacak ve reçete bilgileri görünecek.
+        Yani rapor oluştur sayfasındaki kutu.
+    </p>
+
+    <table class="table">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Rapor Numarası</th>
+            <th scope="col">Oluşturma Tarihi</th>
+            <th scope="col">Oluşturan Personel</th>
+            <th scope="col">Reçete Numarası</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>RPR001</td>
+            <td>01.01.2024</td>
+            <td>Cem Kasapbaşı</td>
+            <td><i onclick="info('PAROL, her tabletinde 500 mg parasetamol içerir.')"
+                    class="fa-solid fa-circle-info">RCT001</i></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>RPR002</td>
+            <td>02.01.2024</td>
+            <td>Ufuk Şanver</td>
+            <td><i onclick="info('PAROL, her tabletinde 500 mg parasetamol içerir.')"
+                    class="fa-solid fa-circle-info">RCT002</i></td>
+        </tr>
+    </table>
+    -->
+    <!-- Kodun yazılacağı yer -->
+
+</section>
+<script src="js/menu.js"></script>
+<script th:inline="javascript">
+/*<![CDATA[*/
+var personelNameArea = /*[[${personelNameSurname}]]*/ '';
+var personelClinicNameArea = /*[[${clinicName}]]*/ '';
+  var personelRank =  /*[[${personelRank}]]*/ '';
+  document.querySelector(".personelNameArea").innerText = personelRank + " " + personelNameArea;
+document.querySelector(".personelClinicNameArea").innerText = personelClinicNameArea;
+/*]]>*/
+</script>
+</body>
+
+</html>
